@@ -1,0 +1,56 @@
+div{
+    border: 1px red solid;
+}
+
+body{
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.window{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.level{
+    width: 100%;
+    height: 75%;
+    display: flex;
+}
+
+.favorite{
+    width: 100%;
+    height: 25%;
+}
+
+.search{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.all{
+    width: 40%;
+    height: 100%;
+}
+
+.title{
+    font-size: 28px;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 5%;
+}   
+
+.inputs{
+    margin-top: 3%;
+}
+
+.last-cep{
+    margin-top: 5%;
+    width: 50%;
+    height: 50%;
+}

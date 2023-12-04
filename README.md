@@ -14,4 +14,4 @@ Para executar o projeto localmente, siga estas etapas:
 
 1. **Clone** o repositório para sua máquina local.
 2. **Configure** o arquivo `Params.php` com os dados do seu banco de dados local 
-
+3. **Crie** as tabelas no banco de dados, o script para criação se encontra em script/dll/create.sql

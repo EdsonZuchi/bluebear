@@ -10,11 +10,24 @@
         public function addCep(array $data){
             $stmt = $this->mysqli->prepare("insert into ceps (cep, logradouro, complemento, bairro, localidade, uf, ibge) values (?, ?, ?, ?, ?, ?, ?)");
             $cep = intval(str_replace('-', '', $data["cep"]));
-            $stmt->bind_param("isssssi", $cep, $data["logradouro"], $data["complemento"], $data["bairro"], $data["localidade"], $data["uf"], intval($data["ibge"]));
+            $ibge = intval($data["ibge"]);
+            $stmt->bind_param("isssssi", $cep, $data["logradouro"], $data["complemento"], $data["bairro"], $data["localidade"], $data["uf"], $ibge);
             $stmt->execute(); 
             $insertedCepId = $this->mysqli->insert_id;
             $stmt->close();
             return $insertedCepId;
+        }
+
+        public function fillAll(){
+            $stmt = $this->mysqli->prepare("select * from ceps");
+            $stmt->execute();
+
+            $result = $stmt->get_result();
+            $arrayResult = $result->fetch_all(MYSQLI_ASSOC);
+
+            $stmt->close();
+
+            return $arrayResult;
         }
 
         public function findByCep(int $cep){
